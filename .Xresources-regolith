@@ -1,0 +1,3 @@
+! -- This points to the root Xresource file.
+#include "/etc/regolith/styles/cahuella/root"
+#include "/home/i3/.Xresources.d/i3-wm"
