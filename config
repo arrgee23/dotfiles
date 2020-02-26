@@ -48,6 +48,7 @@ bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym F10 kill
 
 set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
@@ -95,6 +96,8 @@ bindsym $mod+Shift+question exec --no-startup-id /usr/bin/remontoire-toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
+bindsym F11 floating toggle
+
 bindsym $mod+Ctrl+m move to scratchpad
 bindsym $mod+Ctrl+a scratchpad show
 
@@ -124,10 +127,22 @@ bindsym $mod+Ctrl+6 workspace number $ws16
 bindsym $mod+Ctrl+7 workspace number $ws17
 bindsym $mod+Ctrl+8 workspace number $ws18
 bindsym $mod+Ctrl+9 workspace number $ws19
+# switch to workspace (f1-f4)
+bindsym F1 workspace number $ws1
+bindsym F2 workspace number $ws2
+bindsym F3 workspace number $ws3
+bindsym F4 workspace number $ws4
+bindsym Mod1+F1 workspace number $ws5
+bindsym Mod1+F2 workspace number $ws6
+bindsym Mod1+F3 workspace number $ws7
+bindsym Mod1+F4 workspace number $ws8
+	
 
 # cycle across workspaces
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+$alt+Right workspace next
+bindsym $mod+$alt+Left  workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -185,6 +200,7 @@ bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
 
 # Power off computer
 bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
+bindsym F12 exec /usr/bin/gnome-session-quit --power-off
 
 # lock the screen
 bindsym $mod+Escape exec gnome-screensaver-command --lock
@@ -376,4 +392,25 @@ assign [class="(n|N)autilus"] $ws3
 assign [class="(v|V)lc"] $ws4
 assign [class="(e|E)vince"] $ws4
 #assign [class="LibreOffice Writer"] $ws4
+
+
+
+# mouse bindings
+
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button2 kill
+
+
+
+# The right button toggles floating
+#bindsym button3 floating toggle
+bindsym $mod+button3 floating toggle
+
+# The side buttons move the window around
+bindsym button9 move left
+bindsym button8 move right
+
 
